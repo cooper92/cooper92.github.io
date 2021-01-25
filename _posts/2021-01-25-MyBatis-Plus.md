@@ -8,37 +8,37 @@ tags: [MyBatis, Idea]
 comments: true
 --- 
 
-#概念
-##简介
+# 概念
+## 简介
 官网：https://mybatis.plus/ 或 https://mp.baomidou.com/
 码云地址：https://gitee.com/organizations/baomidou
 MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。
 
-##特性
-*无侵入：只做增强不做改变，引入它不会对现有工程产生影响，如丝般顺滑
-*损耗小：启动即会自动注入基本 CURD，性能基本无损耗，直接面向对象操作
-*强大的 CRUD 操作：内置通用 Mapper、通用 Service，仅仅通过少量配置即可实现单表大部分 CRUD 操作，更有强大的条件构造器，满足各类使用需求
-*支持 Lambda 形式调用：通过 Lambda 表达式，方便的编写各类查询条件，无需再担心字段写错 
-*支持主键自动生成：支持多达 4 种主键策略(内含分布式唯一 ID 生成器 - Sequence)，可自由配置，完美解决主键问题
-*支持 ActiveRecord 模式：支持 ActiveRecord 形式调用，实体类只需继承 Model 类即可进行强 大的 CRUD 操作
-*支持自定义全局通用操作：支持全局通用方法注入( Write once, use anywhere ) 
-*内置代码生成器：采用代码或者 Maven 插件可快速生成 Mapper 、 Model 、 Service 、 Controller 层代码，支持模板引擎，更有超多自定义配置等您来使用
-*内置分⻚插件：基于 MyBatis 物理分⻚，开发者无需关心具体操作，配置好插件之后，写分⻚等 同于普通 List 查询
-*分⻚插件支持多种数据库：支持 MySQL、MariaDB、Oracle、DB2、H2、HSQL、SQLite、 Postgre、SQLServer 等多种数据库
-*内置性能分析插件：可输出 Sql 语句以及其执行时间，建议开发测试时启用该功能，能快速揪出慢 查询
-*内置全局拦截插件：提供全表 delete 、update 操作智能分析阻断，也可自定义拦截规则，预防 误操作
+## 特性
+*   无侵入：只做增强不做改变，引入它不会对现有工程产生影响，如丝般顺滑
+*   损耗小：启动即会自动注入基本 CURD，性能基本无损耗，直接面向对象操作
+*   强大的 CRUD 操作：内置通用 Mapper、通用 Service，仅仅通过少量配置即可实现单表大部分 CRUD 操作，更有强大的条件构造器，满足各类使用需求
+*   支持 Lambda 形式调用：通过 Lambda 表达式，方便的编写各类查询条件，无需再担心字段写错 
+*   支持主键自动生成：支持多达 4 种主键策略(内含分布式唯一 ID 生成器 - Sequence)，可自由配置，完美解决主键问题
+*   支持 ActiveRecord 模式：支持 ActiveRecord 形式调用，实体类只需继承 Model 类即可进行强 大的 CRUD 操作
+*   支持自定义全局通用操作：支持全局通用方法注入( Write once, use anywhere ) 
+*   内置代码生成器：采用代码或者 Maven 插件可快速生成 Mapper 、 Model 、 Service 、 Controller 层代码，支持模板引擎，更有超多自定义配置等您来使用
+*   内置分⻚插件：基于 MyBatis 物理分⻚，开发者无需关心具体操作，配置好插件之后，写分⻚等 同于普通 List 查询
+*   分⻚插件支持多种数据库：支持 MySQL、MariaDB、Oracle、DB2、H2、HSQL、SQLite、 Postgre、SQLServer 等多种数据库
+*   内置性能分析插件：可输出 Sql 语句以及其执行时间，建议开发测试时启用该功能，能快速揪出慢 查询
+*   内置全局拦截插件：提供全表 delete 、update 操作智能分析阻断，也可自定义拦截规则，预防 误操作
 
-##架构
+## 架构
 
 
-#快速入⻔
-##安装Spring Boot
+# 快速入⻔
+## 安装Spring Boot
     <dependency>
       <groupId>com.baomidou</groupId> 
       <artifactId>mybatis-plus-boot-starter</artifactId> 
       <version>3.4.0</version>
     </dependency>
-##Spring MVC
+## Spring MVC
     <dependency>
       <groupId>com.baomidou</groupId> 
       <artifactId>mybatis-plus</artifactId> 
@@ -47,7 +47,7 @@ MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的�
     
 对于Mybatis整合MP有常常有三种用法，分别是Mybatis+MP、Spring+Mybatis+MP、Spring Boot+Mybatis+MP。
 
-##创建数据库和表
+## 创建数据库和表
 test库
     -- 创建测试表
     DROP TABLE IF EXISTS user; 
@@ -66,7 +66,7 @@ test库
     (3, 'Tom', 28, 'test3@baomidou.com'),
     (4, 'Sandy', 21, 'test4@baomidou.com'),
     (5, 'Billie', 24, 'test5@baomidou.com');
-##创建工程
+## 创建工程
 导入依赖，并格式化
     <dependencies>
         <!-- mybatis-plus插件依赖 -->
@@ -127,10 +127,11 @@ test库
             </plugin>
         </plugins>
     </build>
-##用法1：Mybatis + MP
-###创建子Module 
+## 用法1：Mybatis + MP
+### 创建子Module 
 banma-mybatis-plus-simple
-###Mybatis实现查询User
+### Mybatis实现查询User
+
 **第一步，编写mybatis-config.xml文件:**
     <?xml version="1.0" encoding="UTF-8" ?>
     <!DOCTYPE configuration
@@ -161,6 +162,7 @@ jdbc.properties：
     jdbc.url=jdbc:mysql:///test
     jdbc.username=root
     jdbc.password=admin
+    
 **第二步，编写User实体对象:(这里使用lombok进行了进化bean操作)**
     @Data // getter setter toString
     @NoArgsConstructor // 生成无参构造
@@ -171,6 +173,7 @@ jdbc.properties：
         private Integer age;
         private String email;
     }
+    
 **第三步，编写UserMapper接口:**
     public interface UserMapper {
         /**
@@ -178,6 +181,7 @@ jdbc.properties：
          */
         public List<User> findAll();
     }
+    
 **第四步，编写UserMapper.xml文件:**
     <?xml version="1.0" encoding="UTF-8" ?>
     <!DOCTYPE mapper
@@ -208,7 +212,8 @@ jdbc.properties：
     User(id=3, name=Tom, age=28, email=test3@baomidou.com)
     User(id=4, name=Sandy, age=21, email=test4@baomidou.com)
     User(id=5, name=Billie, age=24, email=test5@baomidou.com)
-###IDEA 小技巧
+    
+### IDEA 小技巧
 • 格式化快捷键：Ctrl+Alt+L
 • 删除行快捷键：Ctrl+X
 • .var 开启用推断类型替换var
@@ -221,7 +226,7 @@ jdbc.properties：
 • sout
 • psvm
 
-###Mybatis+MP实现查询User
+### Mybatis+MP实现查询User
 **第一步，将UserMapper继承BaseMapper，将拥有了BaseMapper中的所有方法:**
     public interface UserMapper extends BaseMapper<User> {
         /**
@@ -229,6 +234,7 @@ jdbc.properties：
          */
         public List<User> findAll();
     }
+    
 **第二步，使用MP中的MybatisSqlSessionFactoryBuilder进程构建:**
     @Test
     public void mybatisTest2() throws IOException {
@@ -245,16 +251,17 @@ jdbc.properties：
             System.out.println(user);
         }
     }
->注：如果实体类名称和表名称不一致，可以在实体类上添加注解@TableName("指定数据库表名") 
+    
+> 注：如果实体类名称和表名称不一致，可以在实体类上添加注解@TableName("指定数据库表名") 
 简单说明:
 • 由于使用了 MybatisSqlSessionFactoryBuilder进行了构建，继承的BaseMapper中的方法就载入到了SqlSession中，所以就可以直接使用相关的方法;
 如图：
 
-##用法2：Spring + Mybatis + MP
+## 用法2：Spring + Mybatis + MP
 引入了Spring框架，数据源、构建等工作就交给了Spring管理。
-###创建子Module
+### 创建子Module
 banma-mybatis-plus-spring
-###导入依赖
+### 导入依赖
     <properties>
         <spring.version>5.1.6.RELEASE</spring.version>
     </properties>
@@ -277,7 +284,7 @@ banma-mybatis-plus-spring
         </dependency>
     </dependencies>
     
-###实现查询User
+### 实现查询User
 **第一步，编写jdbc.properties**
     jdbc.driver=com.mysql.jdbc.Driver
     jdbc.url=jdbc:mysql:///test
@@ -328,11 +335,11 @@ banma-mybatis-plus-spring
         }
     }
     
-##用法3：SpringBoot + Mybatis + MP
+## 用法3：SpringBoot + Mybatis + MP
 使用SpringBoot将进一步的简化MP的整合，需要注意的是，由于使用SpringBoot需要继承parent，所以需要重新创建工程，并不是创建子Module。
-###创建工程
+### 创建工程
 banma-mp-springboot
-###导入依赖
+### 导入依赖
     <?xml version="1.0" encoding="UTF-8"?>
     <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -403,12 +410,12 @@ banma-mp-springboot
             </plugins>
         </build>
     </project>
-###编写application.properties
+### 编写application.properties
       spring.datasource.driver-class-name=com.mysql.jdbc.Driver
       spring.datasource.url=jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&useSSL=false
       spring.datasource.username=root
       spring.datasource.password=zl3557884
-###编写entity
+### 编写entity
     @Data // getter setter toString
     @NoArgsConstructor // 生成无参构造
     @AllArgsConstructor // 生成全参构造
@@ -418,10 +425,10 @@ banma-mp-springboot
         private Integer age;
         private String email;
     }
-###编写mapper
+### 编写mapper
     public interface UserMapper extends BaseMapper<User> {
     }
-###编写启动类
+### 编写启动类
     @MapperScan("com.ebanma.cloud.mapper")
     @SpringBootApplication
     public class BanmaMpSpringbootApplication {
@@ -429,7 +436,7 @@ banma-mp-springboot
             SpringApplication.run(BanmaMpSpringbootApplication.class, args);
         }
     }
-###编写测试用例
+### 编写测试用例
     @SpringBootTest
     class BanmaMpSpringbootApplicationTests {
         @Autowired
