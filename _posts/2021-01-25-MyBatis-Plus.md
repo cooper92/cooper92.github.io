@@ -49,7 +49,7 @@ MyBatis-Plus（简称 MP）是一个 MyBatis 的增强工具，在 MyBatis 的�
 
 ## 创建数据库和表
 test库
-        -- 创建测试表
+        
         DROP TABLE IF EXISTS user; 
         CREATE TABLE user
         (
@@ -69,6 +69,7 @@ test库
     
 ## 创建工程
 导入依赖，并格式化
+
     <dependencies>
         <!-- mybatis-plus插件依赖 -->
         <dependency>
