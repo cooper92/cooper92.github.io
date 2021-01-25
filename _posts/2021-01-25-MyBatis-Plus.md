@@ -226,17 +226,17 @@ jdbc.properties：
     User(id=5, name=Billie, age=24, email=test5@baomidou.com)
     
 ### IDEA 小技巧
-• 格式化快捷键：Ctrl+Alt+L
-• 删除行快捷键：Ctrl+X
-• .var 开启用推断类型替换var
-• Declare final勾选且去不掉
-• new一个对象
-• 按下ctrl + alt +v
-• 按下 ait + f
-• 回车
-• list.for
-• sout
-• psvm
+*   格式化快捷键：Ctrl+Alt+L
+*   删除行快捷键：Ctrl+X
+*   .var 开启用推断类型替换var
+*   Declare final勾选且去不掉
+*   new一个对象
+*   按下ctrl + alt +v
+*   按下 ait + f
+*   回车
+*   list.for
+*   sout
+*   psvm
 
 ### Mybatis+MP实现查询User
 **第一步，将UserMapper继承BaseMapper，将拥有了BaseMapper中的所有方法:**
